@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>National Teleprinting – Playlist</title>
+  <style>
+    body { font-family: sans-serif; padding: 2em; background: #f5f5f5; color: #333; }
+    h1 { text-align: center; }
+    .player { text-align: center; margin: 2em 0; }
+    .track-title { font-weight: bold; margin-top: 1em; }
+    audio { width: 100%; max-width: 600px; }
+  </style>
+</head>
+<body>
+  <h1>National Teleprinting – Exceptional Service</h1>
+  <div class="player">
+    <p id="track-title" class="track-title">Loading...</p>
+    <audio id="audioPlayer" controls autoplay></audio>
+  </div>
+  <script>
+    const tracks = [
+      { title: "Denver’s Print Masters A SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Denver’s%20Print%20Masters%20A%20SIDE%20(catchy%20tune,%20melodic,%20acoustic).mp3" },
+      { title: "Denver’s Print Masters B SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Denver’s%20Print%20Masters%20B%20SIDE%20(catchy%20tune,%20melodic,%20acoustic).mp3" },
+      { title: "National Teleprinting Company A SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/National%20Teleprinting%20Company%20A%20SIDE%20(riff-heavy,%20aggressive,%20male%20vocals,%20electric%20guitars,%20rock).mp3" },
+      { title: "National Teleprinting Company B SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/National%20Teleprinting%20Company%20B%20SIDE%20(riff-heavy,%20aggressive,%20male%20vocals,%20electric%20guitars,%20rock).mp3" },
+      { title: "Print Magic A SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Print%20Magic%20A%20SIDE%20(catchy%20pop).mp3" },
+      { title: "Print Magic B SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Print%20Magic%20B%20SIDE%20(catchy%20pop).mp3" },
+      { title: "Print Masters Anthem A SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Print%20Masters%20Anthem%20A%20SIDE%20(classic%20rock,%20electric%20guitar%20riffs,%20driving%20rhythm,%20male%20vocals).mp3" },
+      { title: "Print Masters Anthem B SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Print%20Masters%20Anthem%20B%20SIDE%20(classic%20rock,%20electric%20guitar%20riffs,%20driving%20rhythm,%20male%20vocals).mp3" },
+      { title: "Print with Heart A SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Print%20with%20Heart%20A%20SIDE%20(indie%20pop,%20melodic,%20acoustic).mp3" },
+      { title: "Print with Heart B SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Print%20with%20Heart%20B%20SIDE%20(indie%20pop,%20melodic,%20acoustic).mp3" },
+      { title: "Printing It Right A SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Printing%20It%20Right%20A%20SIDE%20(upbeat,%20male%20vocals,%20melodic).mp3" },
+      { title: "Printing It Right B SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Printing%20It%20Right%20B%20SIDE%20(upbeat,%20male%20vocals,%20melodic).mp3" },
+      { title: "Rollin' with the Prints A SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Rollin’%20with%20the%20Prints%20A%20SIDE%20(edm,%20pulsating%20beats,%20high%20energy).mp3" },
+      { title: "Rollin' with the Prints B SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/Rollin’%20with%20the%20Prints%20B%20SIDE%20(edm,%20pulsating%20beats,%20high%20energy).mp3" },
+      { title: "The National Teleprinting Anthem A SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/The%20National%20Teleprinting%20Anthem%20A%20SIDE%20(bluesy%20rock%20anthem,%20male%20vocals,%20electric,%20gritty).mp3" },
+      { title: "The National Teleprinting Anthem B SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/The%20National%20Teleprinting%20Anthem%20B%20SIDE%20(bluesy%20rock%20anthem,%20male%20vocals,%20electric,%20gritty).mp3" },
+      { title: "The National Teleprinting Jingle A SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/The%20National%20Teleprinting%20Jingle%20A%20SIDE%20(warm,%20male%20vocals,%20timeless,%20acoustic,%20warm).mp3" },
+      { title: "The National Teleprinting Jingle B SIDE", url: "https://blairbrynelson.github.io/national-teleprinting-playlist/The%20National%20Teleprinting%20Jingle%20B%20SIDE%20(warm,%20male%20vocals,%20timeless,%20acoustic,%20warm).mp3" },
+
+    ];
+    let current = 0;
+    const player = document.getElementById("audioPlayer");
+    const titleDisplay = document.getElementById("track-title");
+
+    function playTrack(index) {
+      if (index < tracks.length) {
+        player.src = tracks[index].url;
+        titleDisplay.textContent = tracks[index].title;
+        player.play();
+      }
+    }
+
+    player.addEventListener("ended", () => {
+      current++;
+      if (current < tracks.length) playTrack(current);
+    });
+
+    playTrack(current);
+  </script>
+</body>
+</html>
