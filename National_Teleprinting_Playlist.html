@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>National Teleprinting – Playlist</title>
+  <style>
+    body { font-family: sans-serif; padding: 2em; background: #f5f5f5; color: #333; }
+    h1 { text-align: center; }
+    .player { text-align: center; margin: 2em 0; }
+    .track-title { font-weight: bold; margin-top: 1em; }
+    audio { width: 100%; max-width: 600px; }
+  </style>
+</head>
+<body>
+  <h1>National Teleprinting – Exceptional Service</h1>
+  <div class="player">
+    <p id="track-title" class="track-title">Loading...</p>
+    <audio id="audioPlayer" controls autoplay></audio>
+  </div>
+  <script>
+    const tracks = [
+      { title: "Denver’s Print Masters A SIDE", url: "https://docs.google.com/uc?export=download&id=1e0YEToy_ao8wy70h0Om3KehESvJNdafn" },
+      { title: "Denver’s Print Masters B SIDE", url: "https://docs.google.com/uc?export=download&id=1yXYANJk8dwsrCcgvf8lZe5WvvsSfuZUA" },
+      { title: "Print Magic A SIDE", url: "https://docs.google.com/uc?export=download&id=1oK7eCo7qWBrNdD2faTiIEJH2QkR8-w1D" },
+      { title: "Print Magic B SIDE", url: "https://docs.google.com/uc?export=download&id=1w2buNC9bYsUkvuep1gWjetIvBZQNNYIw" },
+      { title: "Print Masters Anthem A SIDE", url: "https://docs.google.com/uc?export=download&id=123tTkru4EFS_jHhZO-Dqk6v-lkTkzWkC" },
+      { title: "Print Masters Anthem B SIDE", url: "https://docs.google.com/uc?export=download&id=1B-daFBGCGbjAH9o0_XLhezlx4YVYkzIR" },
+      { title: "Print with Heart A SIDE", url: "https://docs.google.com/uc?export=download&id=1HZoNQFiZUTnQw2UyFVpBHfbml3znI4af" },
+      { title: "Print with Heart B SIDE", url: "https://docs.google.com/uc?export=download&id=1opULqPAE-K7zUhqsFezeQl1QZuRdmnwz" },
+      { title: "Printing It Right A SIDE", url: "https://docs.google.com/uc?export=download&id=1BXHrShiEd8wyoP-mhMqspgSO_D4-s4I1" },
+      { title: "Printing It Right B SIDE", url: "https://docs.google.com/uc?export=download&id=1goY4bkgbVfeJfrYrCUHYAMd3iIUElKfz" },
+      { title: "Rollin' with the Prints A SIDE", url: "https://docs.google.com/uc?export=download&id=1W7EtnZupsslzCbBsqx4im3j4K0v2pPIS" },
+      { title: "Rollin' with the Prints B SIDE", url: "https://docs.google.com/uc?export=download&id=1w0VM2Gg4Cd0jojvPW8R_05JhU7PTH48_" },
+      { title: "The National Teleprinting Anthem A SIDE", url: "https://docs.google.com/uc?export=download&id=1jd3nHfC2lMTHq-nCEdpj37KtrKS2bJzc" },
+      { title: "The National Teleprinting Anthem B SIDE", url: "https://docs.google.com/uc?export=download&id=1U-uCFVzYML6opQtGlHJ6abYEeaaS53SO" },
+      { title: "The National Teleprinting Jingle A SIDE", url: "https://docs.google.com/uc?export=download&id=144LUE8hc8TNnIqlHr6BCRhukbXyiJNg9" },
+      { title: "The National Teleprinting Jingle B SIDE", url: "https://docs.google.com/uc?export=download&id=1qokwJJJC3Do5SyaPkEZ6DqfvLQvRnys3" },
+      { title: "National Teleprinting Company A SIDE", url: "https://docs.google.com/uc?export=download&id=1PzR8ueFSjOWJ6ZHZRvZame9Dn91PaQ9M" },
+      { title: "National Teleprinting Company B SIDE", url: "https://docs.google.com/uc?export=download&id=1iPo--2iO1Gi_mCQN5nuge_4gSw9WBPKw" },
+
+    ];
+    let current = 0;
+    const player = document.getElementById("audioPlayer");
+    const titleDisplay = document.getElementById("track-title");
+
+    function playTrack(index) {
+      if (index < tracks.length) {
+        player.src = tracks[index].url;
+        titleDisplay.textContent = tracks[index].title;
+        player.play();
+      }
+    }
+
+    player.addEventListener("ended", () => {
+      current++;
+      if (current < tracks.length) playTrack(current);
+    });
+
+    playTrack(current);
+  </script>
+</body>
+</html>
